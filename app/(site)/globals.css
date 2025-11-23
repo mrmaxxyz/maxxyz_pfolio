@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  /* Nature Distilled Palette - Light */
+  --background: #f4f4f0; /* Warm paper */
+  --foreground: #2a2a2a; /* Soft black */
+  --primary: #4a5d4e; /* Sage Green */
+  --secondary: #a67c52; /* Muted Earth */
+  --accent: #d4a373; /* Sand/Ochre */
+  --muted: #e5e5e0;
+  --border: #dcdcd9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Nature Distilled Palette - Dark */
+    --background: #1a1a1a; /* Deep Charcoal */
+    --foreground: #e0e0e0; /* Soft White */
+    --primary: #6b8e76; /* Lighter Sage */
+    --secondary: #c49a70; /* Lighter Earth */
+    --accent: #e6b88a; /* Lighter Sand */
+    --muted: #2a2a2a;
+    --border: #333333;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
