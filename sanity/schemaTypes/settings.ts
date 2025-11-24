@@ -39,5 +39,18 @@ export default defineType({
             title: 'Watermark',
             type: 'image',
         }),
+        defineField({
+            name: 'headingColor',
+            title: 'Цвет заголовков',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Основной (Primary)', value: 'primary' },
+                    { title: 'Акцентный (Accent)', value: 'accent' },
+                    { title: 'Обычный текст (Foreground)', value: 'foreground' },
+                ],
+            },
+            initialValue: 'foreground',
+        }),
     ],
 })
