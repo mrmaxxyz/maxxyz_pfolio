@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./theme-toggle";
 
 interface NavbarProps {
     siteTitle: string;
@@ -38,17 +37,27 @@ export function Navbar({ siteTitle, navigation }: NavbarProps) {
 
     return (
         <>
-            {/* Desktop & Mobile Navbar */}
-            <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md bg-background/80 backdrop-blur-md border border-border rounded-full px-6 py-3 shadow-lg">
-                <div className="flex items-center justify-between">
-                    <Link
-                        href="/"
-                        className="font-bold text-lg tracking-tight hover:text-primary transition-colors"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        {shortName}
-                    </Link>
+            {/* Logo - Outside Navbar */}
+            <Link
+                href="/"
+                className="fixed top-6 left-8 z-50 font-bold text-2xl tracking-tight hover:text-primary transition-colors hidden md:block"
+                onClick={() => setIsOpen(false)}
+            >
+                {shortName}
+            </Link>
 
+            {/* Mobile Logo - Centered Above Navbar */}
+            <Link
+                href="/"
+                className="fixed top-2 left-1/2 -translate-x-1/2 z-50 font-bold text-xl tracking-tight hover:text-primary transition-colors md:hidden"
+                onClick={() => setIsOpen(false)}
+            >
+                {shortName}
+            </Link>
+
+            {/* Desktop & Mobile Navbar */}
+            <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-fit bg-background/80 backdrop-blur-md border border-border rounded-full px-6 py-3 shadow-lg md:top-6">
+                <div className="flex items-center justify-between gap-6">
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-6 text-sm font-medium">
                         {navigation.map((item, i) => (
@@ -62,19 +71,14 @@ export function Navbar({ siteTitle, navigation }: NavbarProps) {
                         ))}
                     </div>
 
-                    {/* Right side: Theme Toggle + Mobile Menu Button */}
-                    <div className="flex items-center gap-3">
-                        <ThemeToggle />
-
-                        {/* Mobile Menu Toggle */}
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="md:hidden p-1 hover:text-primary transition-colors"
-                            aria-label="Toggle menu"
-                        >
-                            {isOpen ? <X size={20} /> : <Menu size={20} />}
-                        </button>
-                    </div>
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="md:hidden p-1 hover:text-primary transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        {isOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
                 </div>
             </nav>
 

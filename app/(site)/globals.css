@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Nature Distilled Palette - Light */
-  --background: #f4f4f0;
-  /* Warm paper */
-  --foreground: #2a2a2a;
-  /* Soft black */
-  --primary: #4a5d4e;
-  /* Sage Green */
-  --secondary: #a67c52;
-  /* Muted Earth */
-  --accent: #d4a373;
-  /* Sand/Ochre */
-  --muted: #e5e5e0;
-  --border: #dcdcd9;
+  /* Dark Theme Only - Nature Distilled Palette */
+  --background: #1a1a1a;
+  /* Deep Charcoal */
+  --foreground: #e0e0e0;
+  /* Soft White */
+  --primary: #6b8e76;
+  /* Lighter Sage */
+  --secondary: #c49a70;
+  /* Lighter Earth */
+  --accent: #e6b88a;
+  /* Lighter Sand */
+  --muted: #2a2a2a;
+  --border: #333333;
 }
 
 @theme inline {
@@ -26,35 +26,6 @@
   --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Nature Distilled Palette - Dark */
-    --background: #1a1a1a;
-    /* Deep Charcoal */
-    --foreground: #e0e0e0;
-    /* Soft White */
-    --primary: #6b8e76;
-    /* Lighter Sage */
-    --secondary: #c49a70;
-    /* Lighter Earth */
-    --accent: #e6b88a;
-    /* Lighter Sand */
-    --muted: #2a2a2a;
-    --border: #333333;
-  }
-}
-
-/* Explicit dark mode class for theme toggle */
-.dark {
-  --background: #1a1a1a;
-  --foreground: #e0e0e0;
-  --primary: #6b8e76;
-  --secondary: #c49a70;
-  --accent: #e6b88a;
-  --muted: #2a2a2a;
-  --border: #333333;
 }
 
 body {

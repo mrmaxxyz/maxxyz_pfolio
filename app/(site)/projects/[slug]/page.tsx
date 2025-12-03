@@ -38,13 +38,19 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         priority
                     />
                 )}
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 bg-gradient-to-t from-background to-transparent">
+                {/* Enhanced gradient overlay for better text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+                <div className="absolute bottom-0 left-0 w-full p-8 md:p-16">
                     <div className="max-w-7xl mx-auto">
-                        <span className="text-accent font-medium tracking-widest uppercase mb-4 block">
+                        {/* Category badge with background for better visibility */}
+                        <span className="inline-block text-xs font-semibold text-white bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-lg border border-white/20">
                             {project.category?.title}
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                        {/* Title with strong text shadow for definition */}
+                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6"
+                            style={{
+                                textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.9)'
+                            }}>
                             {project.title}
                         </h1>
                     </div>

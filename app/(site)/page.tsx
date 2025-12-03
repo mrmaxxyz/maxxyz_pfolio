@@ -53,12 +53,20 @@ export default async function Home() {
                   priority={i < 4}
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-0 left-0 p-6">
-                <span className="text-xs font-medium text-accent uppercase tracking-wider mb-2 block">
+              {/* Enhanced gradient overlay for better text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 group-hover:from-black/100 transition-all duration-300" />
+
+              <div className="absolute bottom-0 left-0 p-6 w-full">
+                {/* Category with background badge for better visibility */}
+                <span className="inline-block text-xs font-semibold text-white bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-full uppercase tracking-widest mb-3 shadow-lg border border-white/20">
                   {project.category?.title}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-white group-hover:text-primary transition-colors">
+
+                {/* Title with strong text shadow for definition */}
+                <h2 className="text-2xl md:text-3xl font-bold text-white group-hover:text-accent transition-colors duration-300"
+                  style={{
+                    textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.9)'
+                  }}>
                   {project.title}
                 </h2>
               </div>
