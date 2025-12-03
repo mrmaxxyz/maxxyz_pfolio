@@ -3,7 +3,7 @@ import { sanityFetch, urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import Link from "next/link";
 
-const PROJECTS_QUERY = `*[_type == "project"] | order(publishedAt desc) {
+const PROJECTS_QUERY = `*[_type == "project"] | order(orderRank) {
   _id,
   title,
   slug,

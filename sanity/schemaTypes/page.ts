@@ -22,6 +22,27 @@ export default defineType({
             validation: Rule => Rule.required()
         }),
         defineField({
+            name: 'heroTitle',
+            title: 'Заголовок Hero-секции',
+            type: 'string',
+            description: 'Главный заголовок для страницы "Обо мне" (например: "The Architect of Industrial Imagery")'
+        }),
+        defineField({
+            name: 'heroSubtitle',
+            title: 'Подзаголовок Hero-секции',
+            type: 'text',
+            description: 'Описание под заголовком Hero-секции'
+        }),
+        defineField({
+            name: 'heroBackground',
+            title: 'Фон Hero-секции',
+            type: 'image',
+            options: {
+                hotspot: true,
+            },
+            description: 'Фоновое изображение для Hero-секции'
+        }),
+        defineField({
             name: 'profileImage',
             title: 'Фото профиля (круглое)',
             type: 'image',
@@ -29,6 +50,19 @@ export default defineType({
                 hotspot: true,
             },
             description: 'Портретное фото для страницы "Обо мне" (будет отображаться в круге)'
+        }),
+        defineField({
+            name: 'bioTitle',
+            title: 'Заголовок био-секции',
+            type: 'string',
+            description: 'Заголовок для био-секции (например: "A Decade Behind the Lens")'
+        }),
+        defineField({
+            name: 'bioContent',
+            title: 'Текст био-секции',
+            type: 'text',
+            rows: 6,
+            description: 'Основной текст о себе для био-секции'
         }),
         defineField({
             name: 'content',
@@ -122,6 +156,38 @@ export default defineType({
                 to: [{ type: 'project' }]
             }],
             validation: Rule => Rule.max(4)
+        }),
+        defineField({
+            name: 'clients',
+            title: 'Логотипы клиентов',
+            type: 'array',
+            description: 'Список компаний-клиентов с логотипами для отображения в секции "Мои клиенты"',
+            of: [{
+                type: 'object',
+                fields: [
+                    {
+                        name: 'companyName',
+                        type: 'string',
+                        title: 'Название компании',
+                        validation: Rule => Rule.required()
+                    },
+                    {
+                        name: 'logo',
+                        type: 'image',
+                        title: 'Логотип компании',
+                        options: {
+                            hotspot: true,
+                        },
+                        validation: Rule => Rule.required()
+                    }
+                ],
+                preview: {
+                    select: {
+                        title: 'companyName',
+                        media: 'logo'
+                    }
+                }
+            }]
         }),
     ],
     preview: {
